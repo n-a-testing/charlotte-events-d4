@@ -1,0 +1,13 @@
+{
+  "modal_deployed": true,
+  "modal_api_url": "https://n-a-testing--charlotte-events-d4-api.us-east.modal.run",
+  "modal_docs_url": "https://n-a-testing--charlotte-events-d4-api.us-east.modal.run/docs",
+  "vercel_url": null,
+  "deployed_parity_verified": true,
+  "postman_screenshots": false,
+  "frontend_browser_test": "blocked by environment browser launch restrictions",
+  "modal_browser_workspace_verified": "n-a-testing",
+  "modal_cli_version": "1.5.4",
+  "verified_at": "2026-11-24T01:11:35.632875+00:00",
+  "verification_file": "deployed-verification.json"
+}

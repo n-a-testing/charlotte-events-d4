@@ -1,0 +1,513 @@
+{
+  "verified_at": "2026-11-24T01:11:35.632875+00:00",
+  "base_url": "https://n-a-testing--charlotte-events-d4-api.us-east.modal.run",
+  "scope": "deployed Modal",
+  "artifact_id": "53e6aec34c8af66dd1fd",
+  "artifact_sha256": "a469fd7fa13d674bbf381f7f1a1b191b2671f0b3697645fd98530863c36c87e8",
+  "score_rtol": 1e-10,
+  "score_atol": 1e-12,
+  "checks": [
+    {
+      "path": "/health",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/pipeline-info",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/docs",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/openapi.json",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/recommendations",
+      "status": 200,
+      "request": {
+        "interests": [
+          "technology",
+          "career"
+        ],
+        "free_text": "coding internships and robotics",
+        "saved_ids": [],
+        "as_of": "2026-11-15T00:00:00+00:00",
+        "limit": 10
+      },
+      "response": {
+        "model": "logistic_regression",
+        "artifact_id": "53e6aec34c8af66dd1fd",
+        "as_of": "2026-11-15T00:00:00+00:00",
+        "candidate_count": 558,
+        "results": [
+          {
+            "event_id": "9636dfc825358e33121694fe0fb978478ee9992820c2cc8617cd6c627c8aeec1",
+            "title": "M.S. in Financial Engineering & Fintech Virtual Information Session",
+            "start_at": "2026-11-18T17:00:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/ms-in-financial-engineering-fintech-virtual-information-session-1275",
+            "source": "campusevents",
+            "topics": [
+              "academic",
+              "career",
+              "technology"
+            ],
+            "score": 0.9974468842523522
+          },
+          {
+            "event_id": "5b375fc034d581e2b5d4d96600712841e7fb6fa9d9d2f614b92b7c2478c0892f",
+            "title": "Alumni Takeover Month: Career Meet Up: My First Professional Interview",
+            "start_at": "2026-11-16T16:15:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/career-meet-up-my-first-professional-interview-9621",
+            "source": "campusevents",
+            "topics": [
+              "career"
+            ],
+            "score": 0.9866873732660418
+          },
+          {
+            "event_id": "32f6d901d4b92647b7947eb33eac3101ebe981800683f4c6d607cbfc7458b5e7",
+            "title": "Career Meet Up: Imposter Syndrome & Interviewing",
+            "start_at": "2026-11-16T19:30:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/career-meet-up-imposter-syndrome-interviewing-6270",
+            "source": "campusevents",
+            "topics": [
+              "career"
+            ],
+            "score": 0.9850562936665159
+          },
+          {
+            "event_id": "22ed399065885629c147157d3bcf7522a4acb43b0383bd632cce1a3c8580f56b",
+            "title": "Movie: \"Project Hail Mary\" at Popp Martin Student Union",
+            "start_at": "2026-11-17T02:00:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/project-hail-mary-1322",
+            "source": "campusevents",
+            "topics": [
+              "career"
+            ],
+            "score": 0.9814056030379488
+          },
+          {
+            "event_id": "e0e8a3d4ae302c61b03614feb601f508152bcea421b16244f6888fc9ce9df857",
+            "title": "Career Meet Up: Professionalism During Your Interview for Tech, Data and Analytics",
+            "start_at": "2026-11-17T21:00:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/career-meet-up-professionalism-during-your-interview-for-tech-data-and-analytics-2500",
+            "source": "campusevents",
+            "topics": [
+              "career"
+            ],
+            "score": 0.9802028493784095
+          },
+          {
+            "event_id": "55081e520499281462d638f766ed5fbd1f8f08fb3b56e2fef94a7a9e8225624c",
+            "title": "Career Meet Up: Resume Writing Basics",
+            "start_at": "2026-11-16T18:00:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/career-meet-up-resume-writing-basics-3062",
+            "source": "campusevents",
+            "topics": [
+              "career"
+            ],
+            "score": 0.9799619953650799
+          },
+          {
+            "event_id": "3815606f4c7c508f18161c5304a26cfc7804c2907d40b5fdd8907389b94bd178",
+            "title": "Alumni Takeover Month: Career Meet Up: Mastering the Interview",
+            "start_at": "2026-11-17T18:00:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/career-meet-up-mastering-the-interview",
+            "source": "campusevents",
+            "topics": [
+              "career"
+            ],
+            "score": 0.9779408780681063
+          },
+          {
+            "event_id": "12629350446f899d829d3d05e0238efce873f60f04f6fcccc55346fe75d6778a",
+            "title": "Career Meet Up: Interviewing for Med School",
+            "start_at": "2026-11-19T16:30:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/career-meet-up-interviewing-for-med-school",
+            "source": "campusevents",
+            "topics": [
+              "career"
+            ],
+            "score": 0.9746312553949357
+          },
+          {
+            "event_id": "7d021bdb997232a0fb7de9db599e70fd728d0e31ceef26aece1f8b8b154941a5",
+            "title": "Career Game Night",
+            "start_at": "2026-11-17T23:00:00+00:00",
+            "location": "Cone 113",
+            "url": "https://ninerengage.charlotte.edu/event/12975321",
+            "source": "ninerengage",
+            "topics": [
+              "career"
+            ],
+            "score": 0.9733565970790489
+          },
+          {
+            "event_id": "14dcdc4e442c9a99bde9d18f4f6106f3d9b3b00f4c70af86af3c6144000e1862",
+            "title": "From Classroom to Career: Exploring the World of HR",
+            "start_at": "2026-11-16T20:30:00+00:00",
+            "location": "UNC Charlotte, Belk College of Business, Friday Building, Room 212",
+            "url": "https://ninerengage.charlotte.edu/event/12961910",
+            "source": "ninerengage",
+            "topics": [
+              "career"
+            ],
+            "score": 0.9717822247812301
+          }
+        ],
+        "warnings": [
+          "Frozen D3 snapshot; this is not a live campus calendar.",
+          "AI-assigned relevance ratings; scores are not calibrated attendance probabilities.",
+          "Reserved test events are withheld. Check official source pages for event details."
+        ]
+      },
+      "max_score_difference": 0.0,
+      "passed": true
+    },
+    {
+      "path": "/recommendations",
+      "status": 200,
+      "request": {
+        "interests": [
+          "arts",
+          "culture"
+        ],
+        "free_text": "live music and international food",
+        "saved_ids": [],
+        "as_of": "2026-11-15T00:00:00+00:00",
+        "limit": 10
+      },
+      "response": {
+        "model": "logistic_regression",
+        "artifact_id": "53e6aec34c8af66dd1fd",
+        "as_of": "2026-11-15T00:00:00+00:00",
+        "candidate_count": 558,
+        "results": [
+          {
+            "event_id": "3d7d6f3fe43adc934d0143e95498cfb161028a44b7ec2fb00d5edd75a6be6d1b",
+            "title": "Traditional Chinese Painting Workshop at CHHS 159",
+            "start_at": "2026-11-18T23:30:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/traditional-chinese-painting-workshop-9707",
+            "source": "campusevents",
+            "topics": [
+              "academic",
+              "arts",
+              "culture"
+            ],
+            "score": 0.9956526176977835
+          },
+          {
+            "event_id": "eb26755e95c7730651eef35a3a3ea780a76ac3b3c1a61410ee2dbb9a8a7efc9c",
+            "title": "Traditions at Robinson Hall 118",
+            "start_at": "2026-11-19T23:00:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/traditions",
+            "source": "campusevents",
+            "topics": [
+              "arts",
+              "community",
+              "culture"
+            ],
+            "score": 0.9946655133078984
+          },
+          {
+            "event_id": "5be13f78ee1ff7372eb24cf3aa45a88ca99d38a7083ed22574c2552bb1fda889",
+            "title": "Hmong New Year Gala",
+            "start_at": "2026-11-21T20:00:00+00:00",
+            "location": "Cone Lucas Room",
+            "url": "https://ninerengage.charlotte.edu/event/12958071",
+            "source": "ninerengage",
+            "topics": [
+              "arts",
+              "community",
+              "culture"
+            ],
+            "score": 0.9920204961397533
+          },
+          {
+            "event_id": "d242315441e1b69b85b572e3a0279c0bbf6bb2fb46b83aee7c946b3686ccf860",
+            "title": "Hmong New Year Gala at Cone Lucas Room",
+            "start_at": "2026-11-21T20:00:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/hmong-new-year-gala",
+            "source": "campusevents",
+            "topics": [
+              "arts",
+              "community",
+              "culture"
+            ],
+            "score": 0.9920204961397533
+          },
+          {
+            "event_id": "3f476f5eb395318695e28954b73ea611c6e351984024acb5772ca4534a09f112",
+            "title": "Pi\u00f1atas With The First",
+            "start_at": "2026-11-17T00:15:00+00:00",
+            "location": "CHHS 295",
+            "url": "https://ninerengage.charlotte.edu/event/12962465",
+            "source": "ninerengage",
+            "topics": [
+              "culture"
+            ],
+            "score": 0.9677781313516908
+          },
+          {
+            "event_id": "5a5024c1f9986cdd5aafdae0de4e5a328176cafb4c1e843d3beaf9b36dd1a095",
+            "title": "Pi\u00f1atas With The First at CHHS 295",
+            "start_at": "2026-11-17T00:15:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/pinatas-with-the-first-2487",
+            "source": "campusevents",
+            "topics": [
+              "culture"
+            ],
+            "score": 0.9677781313516908
+          },
+          {
+            "event_id": "7f476c1f124e798cdb68d9140bf9c8b217fad90bdd829ee2ec1b66c64099680a",
+            "title": "Jazz Ensemble and Combos at Robinson Hall",
+            "start_at": "2026-11-18T00:30:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/jazz-ensemble-and-combos-103",
+            "source": "campusevents",
+            "topics": [
+              "arts"
+            ],
+            "score": 0.9621107748984763
+          },
+          {
+            "event_id": "034051ce97a791f46d11ac7ac1cc72fa5f971620f284a13567826f7ce170e740",
+            "title": "Codachrome A Cappella's 2026 Fall Showcase at TBD",
+            "start_at": "2026-11-18T00:00:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/codachrome-a-cappellas-2026-fall-showcase",
+            "source": "campusevents",
+            "topics": [
+              "arts"
+            ],
+            "score": 0.960067715008475
+          },
+          {
+            "event_id": "cbd4def9a9429c55bc1c664dedd3b80243bcecdecc2525f879d80f0540350e20",
+            "title": "Codachrome A Cappella's 2026 Fall Showcase",
+            "start_at": "2026-11-18T00:00:00+00:00",
+            "location": "TBD",
+            "url": "https://ninerengage.charlotte.edu/event/12820865",
+            "source": "ninerengage",
+            "topics": [
+              "arts"
+            ],
+            "score": 0.960067715008475
+          },
+          {
+            "event_id": "7c52b1c83925b43db65b500b54b9c917df78575fe1f7f4483717971421c6ba7d",
+            "title": "Symphonic Band & Wind Ensemble at Robinson Hall",
+            "start_at": "2026-11-19T00:30:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/symphonic-band-wind-ensemble-5931",
+            "source": "campusevents",
+            "topics": [
+              "arts"
+            ],
+            "score": 0.9532258490144128
+          }
+        ],
+        "warnings": [
+          "Frozen D3 snapshot; this is not a live campus calendar.",
+          "AI-assigned relevance ratings; scores are not calibrated attendance probabilities.",
+          "Reserved test events are withheld. Check official source pages for event details."
+        ]
+      },
+      "max_score_difference": 2.220446049250313e-16,
+      "passed": true
+    },
+    {
+      "path": "/recommendations",
+      "status": 200,
+      "request": {
+        "interests": [
+          "sports",
+          "wellness"
+        ],
+        "free_text": "pickup soccer, yoga",
+        "saved_ids": [],
+        "as_of": "2026-11-15T00:00:00+00:00",
+        "limit": 10
+      },
+      "response": {
+        "model": "logistic_regression",
+        "artifact_id": "53e6aec34c8af66dd1fd",
+        "as_of": "2026-11-15T00:00:00+00:00",
+        "candidate_count": 558,
+        "results": [
+          {
+            "event_id": "98dc9eeeb07c40081df1a91768e2b95ce84337055bf89b498882a31cd7a78688",
+            "title": "Charlotte 49ers Women's Tennis vs NCAA Individual Championships at Athens, Ga.",
+            "start_at": "2026-11-17T05:00:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/charlotte-49ers-womens-tennis-vs-ncaa-individual-championships",
+            "source": "campusevents",
+            "topics": [
+              "sports"
+            ],
+            "score": 0.9492477403575061
+          },
+          {
+            "event_id": "439cda3c2f2f3f8804bdec6b8b65b77924a2c2b21dfbbd523fa5ae43d6e1732e",
+            "title": "Feel Better Fast: Managing Emotions at Student Union 267",
+            "start_at": "2026-11-16T18:30:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/feel-better-fast-managing-emotions-7518",
+            "source": "campusevents",
+            "topics": [
+              "wellness"
+            ],
+            "score": 0.9484069451094949
+          },
+          {
+            "event_id": "d5d1059c4ef23a1e7a22604870dae4fea3ecbe5c24f53aace1b28ef42285cad3",
+            "title": "Feel Better Fast: Managing Emotions",
+            "start_at": "2026-11-16T18:30:00+00:00",
+            "location": "Student Union 267",
+            "url": "https://ninerengage.charlotte.edu/event/12790405",
+            "source": "ninerengage",
+            "topics": [
+              "wellness"
+            ],
+            "score": 0.9484069451094949
+          },
+          {
+            "event_id": "bc3e92b6d1926753258314ea74ea1699a6f6b49f941e5e0d1965830b750845d8",
+            "title": "Charlotte Women's Basketball vs. Wofford at Halton Arena",
+            "start_at": "2026-11-19T00:00:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/charlotte-womens-basketball-vs-wofford-1072",
+            "source": "campusevents",
+            "topics": [
+              "sports"
+            ],
+            "score": 0.9473545997102479
+          },
+          {
+            "event_id": "2d0aa2155f53adb3804252500d01ac9ea363100f15932d2145067a00b5fe5d30",
+            "title": "Transfer Student Social: Health & Wellbeing Edition",
+            "start_at": "2026-11-16T19:00:00+00:00",
+            "location": "The University Transfer and Adult Student Center",
+            "url": "https://ninerengage.charlotte.edu/event/12933052",
+            "source": "ninerengage",
+            "topics": [
+              "wellness"
+            ],
+            "score": 0.9473449333439428
+          },
+          {
+            "event_id": "f5cc652b45aba6899e946c09e890efb068959a2cd6c5388afe2a629b8fcb9b4d",
+            "title": "Transfer Student Social: Health & Wellbeing Edition at University Transfer and Adult Student Center",
+            "start_at": "2026-11-16T19:00:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/transfer-student-social-health-wellbeing-edition",
+            "source": "campusevents",
+            "topics": [
+              "wellness"
+            ],
+            "score": 0.9473449333439428
+          },
+          {
+            "event_id": "b176f9beadc684ce771f56d741d2b21b577c741d8ea7a63a107f2a2072367e16",
+            "title": "BYO Self-Care Bags",
+            "start_at": "2026-11-20T00:00:00+00:00",
+            "location": "Hunt Hall",
+            "url": "https://ninerengage.charlotte.edu/event/12970299",
+            "source": "ninerengage",
+            "topics": [
+              "wellness"
+            ],
+            "score": 0.9428462397310464
+          },
+          {
+            "event_id": "fc1533137dd3ed76b903dec61f1820b01fbd93c432a2c2b8894ef1307ef25cb0",
+            "title": "Reset for The Test",
+            "start_at": "2026-11-16T23:30:00+00:00",
+            "location": "Duke Centennial Hall 345",
+            "url": "https://ninerengage.charlotte.edu/event/12978065",
+            "source": "ninerengage",
+            "topics": [
+              "wellness"
+            ],
+            "score": 0.9426337108671007
+          },
+          {
+            "event_id": "2139c07af5cfa52805233658d5254e7a97cce95c39679d686fcf9118a144ad18",
+            "title": "UCAE Stress Less Workshop Simulcast",
+            "start_at": "2026-11-16T22:30:00+00:00",
+            "location": "https://charlotte-edu.zoom.us/j/97976242672",
+            "url": "https://ninerengage.charlotte.edu/event/12505651",
+            "source": "ninerengage",
+            "topics": [
+              "wellness"
+            ],
+            "score": 0.9415206534195606
+          },
+          {
+            "event_id": "8ecd079f4390ef4f5fb5c20c1591f66dae6851176723580656d1b25cb2743b76",
+            "title": "UCAE Stress Less Workshop Simulcast at Colvard North 2006",
+            "start_at": "2026-11-16T22:30:00+00:00",
+            "location": null,
+            "url": "https://campusevents.charlotte.edu/event/ucae-stress-less-workshop-simulcast",
+            "source": "campusevents",
+            "topics": [
+              "wellness"
+            ],
+            "score": 0.9415206534195606
+          }
+        ],
+        "warnings": [
+          "Frozen D3 snapshot; this is not a live campus calendar.",
+          "AI-assigned relevance ratings; scores are not calibrated attendance probabilities.",
+          "Reserved test events are withheld. Check official source pages for event details."
+        ]
+      },
+      "max_score_difference": 2.220446049250313e-16,
+      "passed": true
+    },
+    {
+      "path": "/recommendations",
+      "status": 422,
+      "invalid_case": "{'limit': 0}",
+      "passed": true
+    },
+    {
+      "path": "/recommendations",
+      "status": 422,
+      "invalid_case": "{'interests': ['invalid-topic']}",
+      "passed": true
+    },
+    {
+      "path": "/recommendations",
+      "status": 422,
+      "invalid_case": "{'free_text': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "passed": true
+    },
+    {
+      "path": "/recommendations",
+      "status": 422,
+      "invalid_case": "{'as_of': 'bad'}",
+      "passed": true
+    }
+  ],
+  "passed": true
+}
