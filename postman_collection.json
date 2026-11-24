@@ -1,0 +1,177 @@
+{
+  "info": {
+    "name": "Group 13 D4 deployed Modal checks",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Set base_url using configure_remote.py after deployment. This collection deliberately rejects localhost. Take real Postman screenshots of valid 200 and invalid 422 calls after running."
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://n-a-testing--charlotte-events-d4-api.us-east.modal.run",
+      "type": "string"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "const base=pm.variables.get('base_url');",
+          "if(!/^https:\\/\\/[a-z0-9.-]+\\.modal\\.run$/i.test(base||'')) throw new Error('Set base_url to the deployed Modal HTTPS URL, without a trailing slash.');"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/health"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('200 OK',()=>pm.response.to.have.status(200));",
+              "const b=pm.response.json();",
+              "pm.test('Fitted artifact loaded',()=>pm.expect(b.artifact_loaded).to.eql(true));",
+              "pm.test('Correct artifact',()=>pm.expect(b.artifact_id).to.eql('53e6aec34c8af66dd1fd'));",
+              "pm.test('Exact sklearn version',()=>pm.expect(b.sklearn_version).to.eql('1.8.0'));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pipeline information",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/pipeline-info"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('200 OK',()=>pm.response.to.have.status(200));",
+              "const b=pm.response.json();",
+              "pm.test('Required metadata',()=>{pm.expect(b).to.have.property('built_at');pm.expect(b.sklearn_version).to.eql('1.8.0');});",
+              "pm.test('Custom transformer in real pipeline',()=>pm.expect(b.steps.map(x=>x.class)).to.eql(['EventProfileFeatures','StandardScaler','LogisticRegression']));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Valid recommendations 200",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/recommendations",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"interests\": [\n    \"technology\",\n    \"career\"\n  ],\n  \"free_text\": \"coding internships and robotics\",\n  \"saved_ids\": [],\n  \"as_of\": \"2026-11-15T00:00:00+00:00\",\n  \"limit\": 10\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('200 OK',()=>pm.response.to.have.status(200));",
+              "const b=pm.response.json();",
+              "pm.test('Ten results',()=>pm.expect(b.results.length).to.eql(10));",
+              "pm.test('Finite bounded descending scores',()=>b.results.forEach((r,i)=>{pm.expect(r.score).to.be.within(0,1);if(i)pm.expect(r.score).to.be.at.most(b.results[i-1].score);}));",
+              "pm.test('Matches local event order',()=>pm.expect(b.results.map(x=>x.event_id)).to.eql([\"9636dfc825358e33121694fe0fb978478ee9992820c2cc8617cd6c627c8aeec1\", \"5b375fc034d581e2b5d4d96600712841e7fb6fa9d9d2f614b92b7c2478c0892f\", \"32f6d901d4b92647b7947eb33eac3101ebe981800683f4c6d607cbfc7458b5e7\", \"22ed399065885629c147157d3bcf7522a4acb43b0383bd632cce1a3c8580f56b\", \"e0e8a3d4ae302c61b03614feb601f508152bcea421b16244f6888fc9ce9df857\", \"55081e520499281462d638f766ed5fbd1f8f08fb3b56e2fef94a7a9e8225624c\", \"3815606f4c7c508f18161c5304a26cfc7804c2907d40b5fdd8907389b94bd178\", \"12629350446f899d829d3d05e0238efce873f60f04f6fcccc55346fe75d6778a\", \"7d021bdb997232a0fb7de9db599e70fd728d0e31ceef26aece1f8b8b154941a5\", \"14dcdc4e442c9a99bde9d18f4f6106f3d9b3b00f4c70af86af3c6144000e1862\"]));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Invalid limit 422",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/recommendations",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"limit\": 0\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('422 validation error',()=>pm.response.to.have.status(422));",
+              "pm.test('Points to limit',()=>pm.expect(pm.response.json().detail.some(e=>e.loc.includes('limit'))).to.eql(true));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Invalid interest 422",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/recommendations",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"interests\": [\n    \"not-a-topic\"\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('422 validation error',()=>pm.response.to.have.status(422));"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

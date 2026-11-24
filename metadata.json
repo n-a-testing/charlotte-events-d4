@@ -1,0 +1,85 @@
+{
+  "steps": [
+    {
+      "name": "features",
+      "class": "EventProfileFeatures"
+    },
+    {
+      "name": "scale",
+      "class": "StandardScaler"
+    },
+    {
+      "name": "model",
+      "class": "LogisticRegression"
+    }
+  ],
+  "built_at": "2026-11-24T00:35:38.322927+00:00",
+  "sklearn_version": "1.8.0",
+  "python_version": "3.12.14",
+  "artifact_id": "53e6aec34c8af66dd1fd",
+  "feature_names": [
+    "topic_matches",
+    "any_match",
+    "saved_sim",
+    "tfidf_cos",
+    "days_ahead",
+    "log_desc_len",
+    "n_topics",
+    "group_size",
+    "free_food",
+    "free_admission",
+    "start_hour",
+    "weekday"
+  ],
+  "C": 1.0,
+  "tuning": [
+    {
+      "C": 0.01,
+      "mean_validation_ndcg_at_10": 0.4012377167384418
+    },
+    {
+      "C": 0.1,
+      "mean_validation_ndcg_at_10": 0.3828300958654276
+    },
+    {
+      "C": 1.0,
+      "mean_validation_ndcg_at_10": 0.4083402784409513
+    }
+  ],
+  "cutoff": "2026-11-15T00:00:00+00:00",
+  "window_days": 14,
+  "profile_count": 12,
+  "source_event_count": 1093,
+  "catalog_count": 915,
+  "candidate_count": 558,
+  "training_pair_count": 6696,
+  "positive_pair_count": 263,
+  "negative_pair_count": 6433,
+  "judgment_count": 462,
+  "history_document_count": 7,
+  "vocabulary_size": 282,
+  "reserved_test_ids": 179,
+  "reserved_test_ids_present": 178,
+  "test_ids_used_in_fit": 0,
+  "input_sha256": {
+    "d3_events.json": "a370bf6b30354132da11245f36b94e11bf4ff126aff70a474fed816fb8330b39",
+    "profiles.json": "4d06435676706ee16f23b9a96b8ca292cf0404838d7c529576901907d8465e42",
+    "judgments.csv": "907989d0d7e6ef2096903a2df452f7d735987fdd03bf09f5f0226cfd895e80d5",
+    "split_manifest.json": "38db4db5943591d9b1269ba6d3e58b5a9833ffc170f06e5785bc4933c4b7de29"
+  },
+  "pipeline_def_sha256": "74bef44c4b18c3dd63616ab663164c07964f99d4b25247de25185953f4d6db0d",
+  "source_repository": "https://github.com/onlytvisha/charlotte-events-model-eval",
+  "source_commit": "078c5a99e0868497c1febdd9c79a5488ac985fa8",
+  "label_provenance": "D3 placeholder profiles and Claude-assigned 0/1/2 relevance ratings; unjudged=0",
+  "fit_policy": "Refit on D3 development window only. Week-later ratings and D6 test labels unused.",
+  "time_features": "Preserve D3 source timestamp hour and weekday (snapshot timestamps are UTC).",
+  "snapshot_warning": "Retrospective D3 snapshot, not an as-of archived feed; availability at cutoff is unverified.",
+  "dependencies": {
+    "scikit-learn": "1.8.0",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "joblib": "1.5.3",
+    "fastapi": "0.141.1",
+    "pydantic": "2.13.4"
+  }
+}
