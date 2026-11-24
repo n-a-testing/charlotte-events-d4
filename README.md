@@ -2,11 +2,11 @@
 
 Group 13 · DTSC 3602 · Charlotte event recommendations
 
-Group 13 serves the fitted D3 logistic regression model through FastAPI on Modal. The Word report summarizes the pipeline and its limitations. The recorded live verification passed all 11 checks on November 23, 2026.
+Group 13 serves the fitted D3 logistic regression model through FastAPI on Modal. The recorded live verification passed all 11 checks on November 23, 2026.
 
 [API documentation](https://n-a-testing--charlotte-events-d4-api.us-east.modal.run/docs) · [Health check](https://n-a-testing--charlotte-events-d4-api.us-east.modal.run/health) · [Live verification results](evidence/deployed-verification.json)
 
-## What is included
+## Project files
 
 | File | Purpose |
 | --- | --- |
@@ -48,7 +48,7 @@ python verify_api.py --base-url http://127.0.0.1:8000 --allow-local
 
 This writes **local-only** evidence. It does not establish Modal parity.
 
-## Deploy and prove it
+## Deploy and verify the API
 
 Use a terminal authenticated to your Modal workspace. Authentication must happen on the machine running `modal deploy`.
 
@@ -76,7 +76,7 @@ vercel --prod
 
 The frontend calls the configured live Modal API. There is no localhost fallback. Use the deployed page, select interests, and verify that real recommendations appear. The API supports credential-free CORS; no user profile is stored. You can narrow `ALLOWED_ORIGINS` to the frontend origin in the Modal image configuration before redeploying.
 
-Import `postman_collection.json` into Postman and run all five requests against its configured deployed URL. Capture the **valid POST 200** response with passing assertions and the **invalid POST 422** response with passing assertions. Local HTTP evidence is not a substitute for those requested screenshots.
+Import `postman_collection.json` into Postman and run all five requests against its configured deployed URL. The collection checks successful requests and invalid input.
 
 ## Rebuild
 
@@ -91,7 +91,7 @@ Do not run the build script during API startup. Rebuilding updates `pipeline.job
 
 ## Analysis and data lineage
 
-Inputs are copied unchanged from [the D3 repository](https://github.com/onlytvisha/charlotte-events-model-eval). SHA-256 hashes are in metadata. This package does not modify the D2 repository or deployment.
+Inputs are copied unchanged from [the D3 repository](https://github.com/onlytvisha/charlotte-events-model-eval). SHA-256 hashes are in metadata.
 
 - 1,093 source event records; 915 remain in the serving catalog after test-ID exclusion.
 - The frozen manifest contains 179 test IDs; 178 are present in the checked-out D3 snapshot. This measured count differs from the D3 note's statement of 179 present.
@@ -105,7 +105,7 @@ Inputs are copied unchanged from [the D3 repository](https://github.com/onlytvis
 
 Profiles are placeholders and ratings are Claude-assigned, not human preferences. Unjudged events may be relevant. Ranking scores are not calibrated probabilities of attendance or satisfaction. Seven historical documents provide limited text vocabulary coverage. The snapshot was collected after the nominal initial cutoff, so genuine availability of all content at prediction time is not established. D4 preserves D3's feature semantics, including UTC start hour and weekday, rather than silently changing the evaluated model. The frozen manifest covers an earlier snapshot; newly arriving recurring events need an additional group audit before D6. Excluding test IDs does not independently prove that all similar events are separated. Organizer coverage remains unreliable for Campus Events.
 
-No final test metrics or week-later ratings are used in this build. Serving holds reserved IDs out as well. Consequently, this is a reproducible academic demo, not a complete live event catalog. D6 must explicitly address the inherited split and annotation limitations before making real-user performance claims.
+No final test metrics or week-later ratings are used in this build. Serving holds reserved IDs out as well. Consequently, this is a reproducible academic demo, not a complete live event catalog.
 
 ## Verification status
 
@@ -115,8 +115,8 @@ No final test metrics or week-later ratings are used in this build. Serving hold
 - PASS: reserved test-ID overlap with fitting corpus and candidate training rows is zero.
 - Modal passed all 11 live checks. The top 10 events matched in order across three profiles. The maximum absolute score difference was 2.22 × 10⁻¹⁶.
 - PASS: frontend JavaScript syntax check.
-- PENDING: frontend browser interaction tests (the workspace blocked launching Chromium), Vercel deployment and real Postman screenshots against the deployed URL.
+- PENDING: frontend browser interaction tests, Vercel deployment and real Postman screenshots against the deployed URL.
 
 ## AI assistance
 
-OpenAI Codex generated the D4 implementation, documentation and local tests using the supplied project instructions and existing D3 repository. D3's placeholder profiles and Claude-assigned ratings are reused and explicitly disclosed. The group must review and understand the code and accurately document who reviewed, tested, deployed and submitted it.
+OpenAI Codex generated the D4 implementation, documentation and local tests. The model uses D3's sample profiles and Claude-assigned relevance ratings.
